@@ -1,0 +1,10 @@
+
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Registration</title>
+        <link href="assets/bootstrap/bootstrap.css" rel="stylesheet">
+        <script src="assets/js/jqueryValidation.js"></script>
+        <link rel="stylesheet" href="assets/css/custom-style.css"/>
+    </head>
+</head>
