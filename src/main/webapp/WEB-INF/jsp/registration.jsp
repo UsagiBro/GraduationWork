@@ -64,13 +64,6 @@
                 <strong>${sessionScope.errors.passwordRepeat}</strong>
             </p>
         </div>
-        <div class="form-group">
-        <label for="avatar">Load avatar</label>
-            <input class="btn btn-success" type="file" id="avatar" name="avatar" accept="image/*" />
-            <p class="validation-message-s">
-                <strong>${sessionScope.errors.avatar}</strong>
-            </p>
-        </div>
         <div class="6u 12u$(3)">
             <input type="checkbox" id="news" name="news">
             <label for="news">Send me site news</label>
@@ -80,7 +73,7 @@
             <label for="newProducts">Get info about new products</label>
         </div>
 
-        <custom:captcha/>
+        <%--<custom:captcha/>--%>
 
         <div class="row submit-row">
             <button type="submit" class="btn btn-block">

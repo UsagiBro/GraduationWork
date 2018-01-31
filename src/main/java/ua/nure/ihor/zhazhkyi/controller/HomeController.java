@@ -1,11 +1,15 @@
 package ua.nure.ihor.zhazhkyi.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
 public class HomeController {
 
-    public void index() {
+    @RequestMapping("/")
+    public String index() {
+        return "authorization";
     }
+
 }
