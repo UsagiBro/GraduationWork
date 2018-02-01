@@ -1,0 +1,14 @@
+DROP TABLE users;
+DROP TABLE instruments;
+DROP TABLE categories;
+DROP TABLE manufacturers;
+
+CREATE TABLE users(
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(32) NOT NULL,
+    surname VARCHAR(32) NOT NULL,
+    password VARCHAR(32) NOT NULL,
+    email VARCHAR(32) NOT NULL UNIQUE,
+    news BOOLEAN NOT NULL DEFAULT FALSE,
+    new_products BOOLEAN NOT NULL DEFAULT FALSE
+);

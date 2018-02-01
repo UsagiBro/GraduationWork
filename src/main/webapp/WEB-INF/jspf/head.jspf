@@ -7,5 +7,6 @@
         <script src="assets/js/jqueryValidation.js"></script>
         <link rel="stylesheet" href="assets/css/custom-style.css"/>
         <link rel="stylesheet" href="assets/css/style.css"/>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
 </head>
