@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/WEB-INF/jspf/taglib.jspf" %>
 <%@include file="/WEB-INF/jspf/head.jspf" %>
+
 <body>
 <%@include file="navbar.jsp" %>
 <div class="container col-md-4">
@@ -64,16 +65,8 @@
                 <strong>${sessionScope.errors.passwordRepeat}</strong>
             </p>
         </div>
-        <div class="6u 12u$(3)">
-            <input type="checkbox" id="news" name="news">
-            <label for="news">Send me site news</label>
-        </div>
-        <div class="6u$ 12u$(3)">
-            <input type="checkbox" id="newProducts" name="newProducts">
-            <label for="newProducts">Get info about new products</label>
-        </div>
 
-        <%--<custom:captcha/>--%>
+        <div class="g-recaptcha" data-sitekey="6Ldhx0MUAAAAAOfsrS8dFv48VCFbQypMbVLLs5jT"></div>
 
         <div class="row submit-row">
             <button type="submit" class="btn btn-block">
