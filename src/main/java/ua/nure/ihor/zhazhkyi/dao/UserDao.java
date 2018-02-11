@@ -6,4 +6,5 @@ import ua.nure.ihor.zhazhkyi.entity.User;
 
 @Repository
 public interface UserDao extends CrudRepository<User, Long> {
+
 }
