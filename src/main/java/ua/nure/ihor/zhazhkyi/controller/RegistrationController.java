@@ -1,6 +1,7 @@
 package ua.nure.ihor.zhazhkyi.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import ua.nure.ihor.zhazhkyi.dto.UserDto;
@@ -14,7 +15,7 @@ public class RegistrationController {
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String registrationPost(UserDto userDto) {
+    public String registrationPost(@RequestBody UserDto userDto) {
 
         return "authorization";
     }
