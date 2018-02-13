@@ -29,7 +29,7 @@ public class CabinetController {
     }
 
 
-    @GetMapping("/files/{filename:.+}")
+    @GetMapping("/files/{filename}")
     @ResponseBody
     public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
 

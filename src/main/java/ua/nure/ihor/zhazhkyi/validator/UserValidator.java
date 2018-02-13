@@ -18,8 +18,8 @@ public class UserValidator {
         if (userDto.getEmail() == null || !matchPattern(PATTERN_FOR_EMAIL, userDto.getEmail())) {
 //            errors.put(WebConstants.EMAIL, ErrorMessages.EMAIL_VALIDATION_EXCEPTION);
         }
-        if (userDto.getName() == null || userDto.getSurname() == null ||
-                !matchPattern(PATTERN_FOR_NAME, userDto.getName()) ||
+        if (userDto.getFirstName() == null || userDto.getSurname() == null ||
+                !matchPattern(PATTERN_FOR_NAME, userDto.getFirstName()) ||
                 !matchPattern(PATTERN_FOR_NAME, userDto.getSurname())) {
 //            errors.put(WebConstants.NAME, ErrorMessages.NAME_VALIDATION_EXCEPTION);
         }
