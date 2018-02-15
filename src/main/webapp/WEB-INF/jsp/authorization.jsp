@@ -6,7 +6,7 @@
 <div class="container col-md-4">
     <c:choose>
         <c:when test="${empty sessionScope.user}">
-            <form action="authorization" method="post">
+            <form action="authorization">
                 <h3 class="validation-above">
                     <strong>${sessionScope.wrong_authorization}</strong>
                 </h3>

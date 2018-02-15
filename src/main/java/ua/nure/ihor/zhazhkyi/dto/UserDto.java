@@ -4,6 +4,8 @@ public class UserDto {
 
     private String firstName;
     private String lastName;
+    private String password;
+    private String repeatPassword;
     private String email;
     private String phone;
 
@@ -31,6 +33,22 @@ public class UserDto {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRepeatPassword() {
+        return repeatPassword;
+    }
+
+    public void setRepeatPassword(String repeatPassword) {
+        this.repeatPassword = repeatPassword;
     }
 
     public String getEmail() {

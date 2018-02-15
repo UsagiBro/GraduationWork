@@ -1,9 +1,11 @@
 package ua.nure.ihor.zhazhkyi.utils;
 
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 import ua.nure.ihor.zhazhkyi.dto.UserDto;
 import ua.nure.ihor.zhazhkyi.entity.User;
 
+@Component
 public class UserDtoToUserConverter implements Converter<UserDto, User> {
 
     @Override

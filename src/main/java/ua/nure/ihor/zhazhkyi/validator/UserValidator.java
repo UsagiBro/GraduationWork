@@ -18,9 +18,9 @@ public class UserValidator {
         if (userDto.getEmail() == null || !matchPattern(PATTERN_FOR_EMAIL, userDto.getEmail())) {
 //            errors.put(WebConstants.EMAIL, ErrorMessages.EMAIL_VALIDATION_EXCEPTION);
         }
-        if (userDto.getFirstName() == null || userDto.getSurname() == null ||
+        if (userDto.getFirstName() == null || userDto.getLastName() == null ||
                 !matchPattern(PATTERN_FOR_NAME, userDto.getFirstName()) ||
-                !matchPattern(PATTERN_FOR_NAME, userDto.getSurname())) {
+                !matchPattern(PATTERN_FOR_NAME, userDto.getLastName())) {
 //            errors.put(WebConstants.NAME, ErrorMessages.NAME_VALIDATION_EXCEPTION);
         }
 //        if (userDto.getPassword() == null || !ValidatorUtil.matchPattern(PATTERN_FOR_PASSWORD, userDto.getPassword())) {
