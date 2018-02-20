@@ -23,9 +23,6 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false)
-    private String phone;
-
     @Column
     private String email;
 
@@ -61,14 +58,6 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -77,6 +66,23 @@ public class User implements Serializable {
         this.email = email;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        User user = (User) o;
+        return Objects.equals(firstName, user.firstName) &&
+                Objects.equals(lastName, user.lastName) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(email, user.email);
+    }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, password, email);
+    }
 }

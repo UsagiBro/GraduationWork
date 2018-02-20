@@ -2,30 +2,30 @@ package ua.nure.ihor.zhazhkyi.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ua.nure.ihor.zhazhkyi.dao.UserDao;
+import ua.nure.ihor.zhazhkyi.repository.UserRepository;
 import ua.nure.ihor.zhazhkyi.dto.UserDto;
 import ua.nure.ihor.zhazhkyi.entity.User;
 import ua.nure.ihor.zhazhkyi.service.UserService;
-import ua.nure.ihor.zhazhkyi.utils.UserDtoToUserConverter;
+import ua.nure.ihor.zhazhkyi.utils.UserConverter;
 
 @Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserDao userDao;
+    private UserRepository userRepository;
 
     @Autowired
-    private UserDtoToUserConverter userDtoToUserConverter;
+    private UserConverter userConverter;
 
     @Override
     public void registerUser(UserDto userDto) {
-        User user = userDtoToUserConverter.convert(userDto);
-        userDao.save(user);
+        User user = userConverter.userDtoToUser(userDto);
+        userRepository.save(user);
     }
 
     @Override
     public User getUserByEmailAndPassword(String email, String password) {
-        User receivedUser = userDao.findOneByEmail(email);
+        User receivedUser = userRepository.findOneByEmail(email);
         return (receivedUser.getPassword().equals(password)) ?  receivedUser : null;
     }
 }
