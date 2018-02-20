@@ -7,16 +7,14 @@ public class UserDto {
     private String password;
     private String repeatPassword;
     private String email;
-    private String phone;
 
     public UserDto() {
     }
 
-    public UserDto(String firstName, String lastName, String email, String phone) {
+    public UserDto(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.phone = phone;
     }
 
     public String getFirstName() {
@@ -57,13 +55,5 @@ public class UserDto {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 }

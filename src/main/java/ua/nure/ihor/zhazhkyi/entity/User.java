@@ -20,9 +20,6 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String lastName;
 
-    @Column(nullable = false)
-    private String phone;
-
     @Column
     private String email;
 
@@ -50,14 +47,6 @@ public class User implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -78,12 +67,11 @@ public class User implements Serializable {
         User user = (User) o;
         return Objects.equals(firstName, user.firstName) &&
                 Objects.equals(lastName, user.lastName) &&
-                Objects.equals(phone, user.phone) &&
                 Objects.equals(email, user.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, phone, email);
+        return Objects.hash(firstName, lastName, email);
     }
 }
