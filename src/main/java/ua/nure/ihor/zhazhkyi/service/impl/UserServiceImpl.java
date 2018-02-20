@@ -24,7 +24,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserByEmail(String email) {
-        return userDao.findOneByEmail(email);
+    public User getUserByEmailAndPassword(String email, String password) {
+        User receivedUser = userDao.findOneByEmail(email);
+        return (receivedUser.getPassword().equals(password)) ?  receivedUser : null;
     }
 }

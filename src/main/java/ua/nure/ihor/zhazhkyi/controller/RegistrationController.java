@@ -20,7 +20,7 @@ public class RegistrationController {
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String registrationPost(@RequestBody UserDto userDto) {
+    public String registrationPost(UserDto userDto) {
         userService.registerUser(userDto);
         return "cabinet";
     }

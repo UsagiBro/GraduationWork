@@ -22,7 +22,7 @@ public class HomeController {
 
     @RequestMapping(value = "/authorize", method = RequestMethod.GET)
     public String authorizeUser(@RequestBody String email, @RequestBody String password) {
-        User receivedUser = userService.getUserByEmail(email, password);
+        User receivedUser = userService.getUserByEmailAndPassword(email, password);
         return "authorization";
     }
 }
