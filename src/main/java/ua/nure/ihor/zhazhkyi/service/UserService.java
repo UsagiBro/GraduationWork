@@ -9,5 +9,5 @@ public interface UserService {
 
     void registerUser(UserDto userDto);
 
-    User getUserByEmail(String email, String password);
+    User getUserByEmailAndPassword(String email, String password);
 }

@@ -21,6 +21,9 @@ public class User implements Serializable {
     private String lastName;
 
     @Column(nullable = false)
+    private String password;
+
+    @Column(nullable = false)
     private String phone;
 
     @Column
@@ -48,6 +51,14 @@ public class User implements Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getPhone() {

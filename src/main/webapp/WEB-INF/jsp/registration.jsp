@@ -5,13 +5,13 @@
 <body>
 <%@include file="navbar.jsp" %>
 <div class="container col-md-4">
-    <form id="registrationForm" action="registration" enctype="multipart/form-data" method="post">
+    <form id="registrationForm" action="registration" method="post">
         <h3 class="validation-above">
              <strong>${sessionScope.user_exists}</strong>
         </h3>
         <div class="form-group">
             <label for="name">Name</label>
-            <input  class="form-control" id="name" name="name" value="${sessionScope.name}"
+            <input  class="form-control" id="name" name="firstName" value="${sessionScope.firstName}"
              placeholder="Enter your name" required>
             <p id="nameErr" class="validation-message">
                 <strong>Name can contain only letters and be longer than 1 symbol</strong>
@@ -22,7 +22,7 @@
         </div>
         <div class="form-group">
             <label for="surname">Surname</label>
-            <input  class="form-control" id="surname" name="surname" value="${sessionScope.surname}"
+            <input  class="form-control" id="surname" name="lastName" value="${sessionScope.lastName}"
             placeholder="Enter your surname" required>
             <p id="surnameErr" class="validation-message">
                 <strong>Surname can contain only letters and be longer than 1 symbol</strong>
