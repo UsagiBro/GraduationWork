@@ -3,7 +3,14 @@
     <h1><a href="/cabinet">Glasses</a></h1>
     <nav id="nav">
         <ul>
-            <li><a href="/cabinet">Cabinet</a></li>
+            <c:choose>
+                <c:when test="${empty sessionScope.user}">
+                    <li><a href="/cabinet">Cabinet</a></li>
+                </c:when>
+                <c:otherwise>
+                    <li><a href="/authorization">Cabinet</a></li>
+                </c:otherwise>
+            </c:choose>
             <li><a href="/store">Glasses</a></li>
             <c:choose>
                 <c:when test="${not empty sessionScope.user}">

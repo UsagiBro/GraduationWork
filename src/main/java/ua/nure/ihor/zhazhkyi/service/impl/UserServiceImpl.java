@@ -8,6 +8,9 @@ import ua.nure.ihor.zhazhkyi.entity.User;
 import ua.nure.ihor.zhazhkyi.service.UserService;
 import ua.nure.ihor.zhazhkyi.utils.UserConverter;
 
+import java.util.Objects;
+import java.util.Optional;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -26,6 +29,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserByEmailAndPassword(String email, String password) {
         User receivedUser = userRepository.findOneByEmail(email);
-        return (receivedUser.getPassword().equals(password)) ?  receivedUser : null;
+        if (Objects.nonNull(receivedUser)) {
+            return (receivedUser.getPassword().equals(password)) ?  receivedUser : null;
+        }
+        return null;
     }
 }

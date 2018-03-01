@@ -8,8 +8,9 @@
         <h3>Please, register.</h3>
     </c:when>
     <c:otherwise>
-        <form action="uploadPhoto" method="post">
-            <input class="btn btn-success" type="file" id="avatar" name="avatar" accept="image/*" value="Upload photo">
+        <form action="uploadPhoto" method="post" enctype="multipart/form-data">
+            <input class="btn btn-success" type="submit"
+             id="avatar" name="avatar" accept="image/*" value="Upload photo">
         </form>
     </c:otherwise>
 </c:choose>

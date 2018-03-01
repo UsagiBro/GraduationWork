@@ -38,19 +38,14 @@ public class CabinetController {
                 "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }
 
-    @PostMapping("/")
+    @PostMapping("/uploadPhoto")
     public String uploadPhoto(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
 
-//        storageService.store(file);
+        storageService.store(file);
         redirectAttributes.addFlashAttribute("message",
                 "You successfully uploaded " + file.getOriginalFilename() + "!");
 
         return "redirect:/cabinet";
     }
-
-//    @ExceptionHandler(StorageFileNotFoundException.class)
-//    public ResponseEntity<?> handleStorageFileNotFound(StorageFileNotFoundException exc) {
-//        return ResponseEntity.notFound().build();
-//    }
 }
