@@ -7,7 +7,7 @@ import ua.nure.ihor.zhazhkyi.exception.user.NoSuchUserException;
 
 public enum  ExceptionDescriber {
 
-    NO_SUCH_USER(NoSuchUserException.class, 4004, "The requested id does not exists.",
+    NO_SUCH_USER(NoSuchUserException.class, 4004, "User with such email and password does not exist.",
                   HttpStatus.NOT_FOUND),
     VALIDATION_ERROR(ServiceException.class, 4000, "Validation error has been occurred.",
                      HttpStatus.BAD_REQUEST),

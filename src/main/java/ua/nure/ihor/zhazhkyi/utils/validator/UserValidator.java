@@ -1,4 +1,4 @@
-package ua.nure.ihor.zhazhkyi.utils;
+package ua.nure.ihor.zhazhkyi.utils.validator;
 
 import ua.nure.ihor.zhazhkyi.constants.WebConstants;
 import ua.nure.ihor.zhazhkyi.dto.UserDto;

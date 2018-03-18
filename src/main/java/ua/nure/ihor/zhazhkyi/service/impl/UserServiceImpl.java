@@ -2,13 +2,13 @@ package ua.nure.ihor.zhazhkyi.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ua.nure.ihor.zhazhkyi.repository.UserRepository;
 import ua.nure.ihor.zhazhkyi.dto.UserDto;
 import ua.nure.ihor.zhazhkyi.entity.User;
+import ua.nure.ihor.zhazhkyi.exception.user.NoSuchUserException;
+import ua.nure.ihor.zhazhkyi.persistence.UserRepository;
 import ua.nure.ihor.zhazhkyi.service.UserService;
-import ua.nure.ihor.zhazhkyi.utils.UserConverter;
+import ua.nure.ihor.zhazhkyi.utils.converter.UserConverter;
 
-import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -28,10 +28,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserByEmailAndPassword(String email, String password) {
-        User receivedUser = userRepository.findOneByEmail(email);
-        if (Objects.nonNull(receivedUser)) {
-            return (receivedUser.getPassword().equals(password)) ?  receivedUser : null;
-        }
-        return null;
+        return Optional.ofNullable(userRepository.findOneByEmail(email))
+                .filter(gotUser -> gotUser.getPassword().equals(password))
+                .orElseThrow(() -> new NoSuchUserException("User with such email and password does not exist."));
     }
 }

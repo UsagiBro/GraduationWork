@@ -1,4 +1,4 @@
-package ua.nure.ihor.zhazhkyi.repository;
+package ua.nure.ihor.zhazhkyi.persistence;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
