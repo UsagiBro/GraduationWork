@@ -2,6 +2,7 @@
 <%@include file="/WEB-INF/jspf/taglib.jspf" %>
 <%@include file="/WEB-INF/jspf/head.jspf" %>
 <body>
+<%@include file="/WEB-INF/jsp/navbar.jsp" %>
 <br>
 <br>
 <br>
@@ -9,11 +10,12 @@
     <div id="tb-testimonial" class="testimonial testimonial-danger">
         <div class="testimonial-section">
             ${sessionScope.error}
+            Something happened
         </div>
         <div class="testimonial-desc">
             <img src="assets/images/error_symbol.png">
             <div class="testimonial-writer">
-                <div class="testimonial-writer-name">Internal server error, please try again later(</div>
+                <div class="testimonial-writer-name">Invalid request</div>
             </div>
         </div>
     </div>
