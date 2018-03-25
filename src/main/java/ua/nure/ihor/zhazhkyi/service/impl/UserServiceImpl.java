@@ -8,6 +8,7 @@ import ua.nure.ihor.zhazhkyi.exception.user.NoSuchUserException;
 import ua.nure.ihor.zhazhkyi.persistence.UserRepository;
 import ua.nure.ihor.zhazhkyi.service.UserService;
 import ua.nure.ihor.zhazhkyi.utils.converter.UserConverter;
+import ua.nure.ihor.zhazhkyi.utils.validator.UserValidator;
 
 import java.util.Optional;
 
@@ -20,8 +21,12 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserConverter userConverter;
 
+    @Autowired
+    private UserValidator userValidator;
+
     @Override
     public void registerUser(UserDto userDto) {
+        userValidator.validate(userDto);
         User user = userConverter.userDtoToUser(userDto);
         userRepository.save(user);
     }
