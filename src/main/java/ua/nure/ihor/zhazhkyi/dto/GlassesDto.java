@@ -1,31 +1,26 @@
-package ua.nure.ihor.zhazhkyi.entity;
+package ua.nure.ihor.zhazhkyi.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.util.Objects;
 
-@Entity
-public class Glasses {
+public class GlassesDto {
 
-    @Id
-    @GeneratedValue
-    private long id;
-
-    @Column(name = "name", unique = true, nullable = false)
     private String name;
 
-
-    @Column(name = "type", nullable = false)
     private String type;
 
-
-    @Column(name = "price", nullable = false)
     private int price;
 
-    @Column(name = "material")
     private String material;
+
+    public GlassesDto() {
+    }
+
+    public GlassesDto(String name, String type, int price, String material) {
+        this.name = name;
+        this.type = type;
+        this.price = price;
+        this.material = material;
+    }
 
     public String getName() {
         return name;
@@ -67,16 +62,15 @@ public class Glasses {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Glasses glasses = (Glasses) o;
-        return id == glasses.id &&
-                price == glasses.price &&
-                Objects.equals(name, glasses.name) &&
-                Objects.equals(type, glasses.type) &&
-                Objects.equals(material, glasses.material);
+        GlassesDto that = (GlassesDto) o;
+        return price == that.price &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(type, that.type) &&
+                Objects.equals(material, that.material);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, type, price, material);
+        return Objects.hash(name, type, price, material);
     }
 }
