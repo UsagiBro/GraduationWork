@@ -3,7 +3,7 @@ package ua.nure.ihor.zhazhkyi.utils.validator;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import ua.nure.ihor.zhazhkyi.dto.UserDto;
-import ua.nure.ihor.zhazhkyi.exception.user.ValidationException;
+import ua.nure.ihor.zhazhkyi.exception.user.UserValidationException;
 
 import java.util.Objects;
 
@@ -23,20 +23,20 @@ public class UserValidator extends Validator<UserDto> {
 
     public void validate(UserDto userDto) {
         if (!matchesPattern(userDto.getEmail(), REGEX_FOR_EMAIL)) {
-            throw new ValidationException(String.format(EMAIL_VALIDATION_ERROR_MESSAGE, userDto.getEmail()));
+            throw new UserValidationException(String.format(EMAIL_VALIDATION_ERROR_MESSAGE, userDto.getEmail()));
         }
         if (!matchesPattern(userDto.getFirstName(), REGEX_FOR_NAME)) {
-            throw new ValidationException(String.format(NAME_VALIDATION_ERROR_MESSAGE, userDto.getFirstName()));
+            throw new UserValidationException(String.format(NAME_VALIDATION_ERROR_MESSAGE, userDto.getFirstName()));
         }
         if (!matchesPattern(userDto.getLastName(), REGEX_FOR_NAME)) {
-            throw new ValidationException(String.format(SURNAME_VALIDATION_ERROR_MESSAGE, userDto.getLastName()));
+            throw new UserValidationException(String.format(SURNAME_VALIDATION_ERROR_MESSAGE, userDto.getLastName()));
         }
         if (!matchesPattern(userDto.getPassword(), REGEX_FOR_PASSWORD)) {
-            throw new ValidationException(PASSWORD_VALIDATION_ERROR_MESSAGE);
+            throw new UserValidationException(PASSWORD_VALIDATION_ERROR_MESSAGE);
         }
         if (!matchesPattern(userDto.getRepeatPassword(), REGEX_FOR_PASSWORD) ||
                 !Objects.equals(userDto.getPassword(), userDto.getRepeatPassword())) {
-            throw new ValidationException(PASSWORD_NOT_MATCH_MESSAGE);
+            throw new UserValidationException(PASSWORD_NOT_MATCH_MESSAGE);
         }
     }
 }

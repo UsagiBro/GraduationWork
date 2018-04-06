@@ -27,10 +27,10 @@ public class BusinessServiceExceptionHandler {
         ExceptionResponseBody response = new ExceptionResponseBody(
                 exceptionDescriber, exception.getMessage());
 //        return buildResponseEntity(response, exceptionDescriber.getHttpStatus());
-        ModelAndView mav = new ModelAndView();
-        mav.addObject("exception", response);
-        mav.setViewName("errors/error");
-        return mav;
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("exception", response);
+        modelAndView.setViewName("errors/error");
+        return modelAndView;
     }
 
 

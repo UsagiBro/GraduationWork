@@ -3,7 +3,7 @@ package ua.nure.ihor.zhazhkyi.utils.validator;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import ua.nure.ihor.zhazhkyi.dto.GlassesDto;
-import ua.nure.ihor.zhazhkyi.exception.user.ValidationException;
+import ua.nure.ihor.zhazhkyi.exception.user.UserValidationException;
 
 @Component
 @Qualifier("GlassesValidator")
@@ -20,16 +20,16 @@ public class GlassesValidator extends Validator<GlassesDto> {
     @Override
     public void validate(GlassesDto glassesDto) {
         if (!matchesPattern(glassesDto.getName(), REGEX_FOR_STRING_FIELD)) {
-            throw new ValidationException(String.format(NAME_VALIDATION_ERROR_MESSAGE, glassesDto.getName()));
+            throw new UserValidationException(String.format(NAME_VALIDATION_ERROR_MESSAGE, glassesDto.getName()));
         }
         if (!matchesPattern(glassesDto.getType(), REGEX_FOR_STRING_FIELD)) {
-            throw new ValidationException(String.format(TYPE_VALIDATION_ERROR_MESSAGE, glassesDto.getType()));
+            throw new UserValidationException(String.format(TYPE_VALIDATION_ERROR_MESSAGE, glassesDto.getType()));
         }
         if (!matchesPattern(glassesDto.getMaterial(), REGEX_FOR_STRING_FIELD)) {
-            throw new ValidationException(String.format(MATERIAL_VALIDATION_ERROR_MESSAGE, glassesDto.getMaterial()));
+            throw new UserValidationException(String.format(MATERIAL_VALIDATION_ERROR_MESSAGE, glassesDto.getMaterial()));
         }
         if (!matchesPattern(String.valueOf(glassesDto.getPrice()), REGEX_FOR_PRICE)) {
-            throw new ValidationException(String.format(PRICE_VALIDATION_ERROR_MESSAGE, glassesDto.getPrice()));
+            throw new UserValidationException(String.format(PRICE_VALIDATION_ERROR_MESSAGE, glassesDto.getPrice()));
         }
     }
 

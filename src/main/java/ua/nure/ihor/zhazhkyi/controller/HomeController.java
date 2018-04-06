@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import ua.nure.ihor.zhazhkyi.constants.WebConstants;
 import ua.nure.ihor.zhazhkyi.entity.User;
 import ua.nure.ihor.zhazhkyi.service.UserService;
 
@@ -21,15 +22,15 @@ public class HomeController {
 
     @RequestMapping("/")
     public String index() {
-        return "authorization";
+        return WebConstants.AUTHORIZATION_PATH;
     }
 
     @RequestMapping(value = "/authorization", method = RequestMethod.POST)
     public String authorizeUser(@RequestParam String email, @RequestParam String password) {
         User receivedUser = userService.getUserByEmailAndPassword(email, password);
         if (Objects.nonNull(receivedUser)) {
-            return "cabinet";
+            return WebConstants.CABINET_PATH;
         }
-        return "authorization";
+        return WebConstants.AUTHORIZATION_PATH;
     }
 }
