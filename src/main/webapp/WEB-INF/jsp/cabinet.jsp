@@ -6,12 +6,20 @@
 <c:choose>
     <c:when test="${empty sessionScope.user}">
         <h3>Please, register.</h3>
+        <form method="POST" action="/uploadPhoto" enctype="multipart/form-data">
+                		File to upload: <input type="file" name="file">
+                		Name: <input type="text" name="name">
+                		<input type="submit" value="Upload"> Press here to upload your photo
+                	</form>
     </c:when>
     <c:otherwise>
-        <form action="uploadPhoto" method="post" enctype="multipart/form-data">
-            <input class="btn btn-success" type="submit"
-             id="avatar" name="avatar" accept="image/*" value="Upload photo">
-        </form>
+    <div class="col-md-6">
+        <form method="POST" action="/uploadPhoto" enctype="multipart/form-data">
+        		File to upload: <input type="file" name="file">
+        		Name: <input type="text" name="name">
+        		<input type="submit" value="Upload"> Press here to upload your photo
+        	</form>
+    </div>
     </c:otherwise>
 </c:choose>
 </body>

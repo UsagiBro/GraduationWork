@@ -1,24 +1,27 @@
 package ua.nure.ihor.zhazhkyi.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ua.nure.ihor.zhazhkyi.service.StorageService;
-import ua.nure.ihor.zhazhkyi.service.UserService;
+
+import javax.servlet.ServletContext;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 
 @Controller
 public class CabinetController {
+
+    private static final Logger LOG = Logger.getLogger(CabinetController.class);
+
+    @Autowired
+    private ServletContext context;
 
     @Autowired
     private StorageService storageService;
@@ -28,24 +31,40 @@ public class CabinetController {
         return "cabinet";
     }
 
-
-    @GetMapping("/files/{filename}")
-    @ResponseBody
-    public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
-
-        Resource file = storageService.storeFile(filename);
-        return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
-                "attachment; filename=\"" + file.getFilename() + "\"").body(file);
-    }
-
     @PostMapping("/uploadPhoto")
-    public String uploadPhoto(@RequestParam("file") MultipartFile file,
-                                   RedirectAttributes redirectAttributes) {
+    public @ResponseBody
+    String uploadImage(@RequestParam("name") String name,
+                       @RequestParam("file") MultipartFile file) {
+        if (!file.isEmpty()) {
+            try {
+                byte[] bytes = file.getBytes();
 
-        storageService.store(file);
-        redirectAttributes.addFlashAttribute("message",
-                "You successfully uploaded " + file.getOriginalFilename() + "!");
+                // Creating the directory to store file
+//                String rootPath = context.getRealPath("");
+                File dir = new File(
+//                        rootPath + File.separator +
+                        "upload");
+                if (!dir.exists())
+                    dir.mkdirs();
 
-        return "redirect:/cabinet";
+                // Create the file on server
+                File serverFile = new File(dir.getAbsolutePath()
+                        + File.separator + name);
+                BufferedOutputStream stream = new BufferedOutputStream(
+                        new FileOutputStream(serverFile));
+                stream.write(bytes);
+                stream.close();
+
+                LOG.info("Server File Location="
+                        + serverFile.getAbsolutePath());
+
+                return "You successfully uploaded file=" + name;
+            } catch (Exception e) {
+                return "You failed to upload " + name + " => " + e.getMessage();
+            }
+        } else {
+            return "You failed to upload " + name
+                    + " because the file was empty.";
+        }
     }
 }
