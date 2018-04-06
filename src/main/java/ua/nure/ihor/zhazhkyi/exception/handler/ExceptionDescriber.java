@@ -1,13 +1,16 @@
-package ua.nure.ihor.zhazhkyi.exception;
+package ua.nure.ihor.zhazhkyi.exception.handler;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import ua.nure.ihor.zhazhkyi.exception.ServiceException;
 import ua.nure.ihor.zhazhkyi.exception.user.NoSuchUserException;
 
 public enum  ExceptionDescriber {
 
     NO_SUCH_USER(NoSuchUserException.class, 4004, "User with such email and password does not exist.",
+                  HttpStatus.NOT_FOUND),
+    USER_ALREADY_EXISTS(NoSuchUserException.class, 4004, "User with such email and password does not exist.",
                   HttpStatus.NOT_FOUND),
     VALIDATION_ERROR(ServiceException.class, 4000, "Validation error has been occurred.",
                      HttpStatus.BAD_REQUEST),
@@ -15,7 +18,7 @@ public enum  ExceptionDescriber {
                    HttpStatus.BAD_REQUEST),
     INVALID_JSON(HttpMessageNotReadableException.class, 4006, "JSON validation error has been occurred.",
                  HttpStatus.BAD_REQUEST),
-    INTERNAL_ERROR(Exception.class, 5000, "Order service internal error has been occurred.",
+    INTERNAL_ERROR(Exception.class, 5000, "Internal error has been occurred.",
                    HttpStatus.INTERNAL_SERVER_ERROR);
 
     private Class exception;

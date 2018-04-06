@@ -9,8 +9,7 @@
 <div class="col-xs-10">
     <div id="tb-testimonial" class="testimonial testimonial-danger">
         <div class="testimonial-section">
-            ${sessionScope.error}
-            Something happened
+            ${exception.description}
         </div>
         <div class="testimonial-desc">
             <img src="assets/images/error_symbol.png">

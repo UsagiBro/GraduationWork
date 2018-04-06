@@ -1,5 +1,7 @@
 package ua.nure.ihor.zhazhkyi.entity;
 
+import org.springframework.context.annotation.Scope;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
+@Scope("session")
 public class User implements Serializable {
 
     @Id

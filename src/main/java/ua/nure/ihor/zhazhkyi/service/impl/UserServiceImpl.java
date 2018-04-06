@@ -5,11 +5,13 @@ import org.springframework.stereotype.Service;
 import ua.nure.ihor.zhazhkyi.dto.UserDto;
 import ua.nure.ihor.zhazhkyi.entity.User;
 import ua.nure.ihor.zhazhkyi.exception.user.NoSuchUserException;
+import ua.nure.ihor.zhazhkyi.exception.user.UserAlreadyExistsException;
 import ua.nure.ihor.zhazhkyi.persistence.UserRepository;
 import ua.nure.ihor.zhazhkyi.service.UserService;
 import ua.nure.ihor.zhazhkyi.utils.converter.UserConverter;
 import ua.nure.ihor.zhazhkyi.utils.validator.UserValidator;
 
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -27,6 +29,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public void registerUser(UserDto userDto) {
         userValidator.validate(userDto);
+        if (Objects.nonNull(userRepository.findOneByEmail(userDto.getEmail()))) {
+            throw new UserAlreadyExistsException("User with such email already exists");
+        }
         User user = userConverter.userDtoToUser(userDto);
         userRepository.save(user);
     }

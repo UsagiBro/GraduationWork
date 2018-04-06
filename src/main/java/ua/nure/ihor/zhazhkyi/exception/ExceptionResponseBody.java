@@ -1,5 +1,7 @@
 package ua.nure.ihor.zhazhkyi.exception;
 
+import ua.nure.ihor.zhazhkyi.exception.handler.ExceptionDescriber;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 

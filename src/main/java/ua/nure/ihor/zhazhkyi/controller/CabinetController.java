@@ -6,11 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import ua.nure.ihor.zhazhkyi.constants.WebConstants;
 import ua.nure.ihor.zhazhkyi.service.StorageService;
 
 @Controller
+@SessionAttributes("user")
 public class CabinetController {
 
     @Autowired

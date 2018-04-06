@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import ua.nure.ihor.zhazhkyi.constants.WebConstants;
 import ua.nure.ihor.zhazhkyi.entity.User;
 import ua.nure.ihor.zhazhkyi.service.UserService;
@@ -15,6 +16,7 @@ import java.util.Objects;
 
 
 @Controller
+@SessionAttributes("user")
 public class HomeController {
 
     @Autowired

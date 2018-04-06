@@ -56,8 +56,8 @@
         </div>
         <div class="form-group">
             <label for="password">Repeat password</label>
-            <input type="password" class="form-control" name="passwordRepeat"
-             id="passwordRepeat" placeholder="Repeat password" required>
+            <input type="password" class="form-control" name="repeatPassword"
+             id="repeatPassword" placeholder="Repeat password" required>
             <p id="passwordRepeatErr" class="validation-message">
                 <strong>Passwords dont match</strong>
             </p>

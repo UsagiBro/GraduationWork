@@ -6,11 +6,6 @@
 <c:choose>
     <c:when test="${empty sessionScope.user}">
         <h3>Please, register.</h3>
-        <form method="POST" action="/uploadPhoto" enctype="multipart/form-data">
-                		File to upload: <input type="file" name="file">
-                		Name: <input type="text" name="name">
-                		<input type="submit" value="Upload"> Press here to upload your photo
-                	</form>
     </c:when>
     <c:otherwise>
     <div class="col-md-6">
