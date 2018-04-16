@@ -27,6 +27,11 @@ public class HomeController {
         return WebConstants.AUTHORIZATION_PATH;
     }
 
+    @RequestMapping(value = "/authorization", method = RequestMethod.GET)
+    public String getAuthorization() {
+        return WebConstants.AUTHORIZATION_PATH;
+    }
+
     @RequestMapping(value = "/authorization", method = RequestMethod.POST)
     public String authorizeUser(@RequestParam String email, @RequestParam String password) {
         User receivedUser = userService.getUserByEmailAndPassword(email, password);
