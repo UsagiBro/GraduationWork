@@ -6,12 +6,10 @@
             <c:choose>
                 <c:when test="${empty sessionScope.user}">
                     <li><a href="/cabinet">Cabinet</a></li>
+                    <li><a href="/profile">Profile</a></li>
                 </c:when>
-                <c:otherwise>
-                    <li><a href="/authorization">Profile</a></li>
-                </c:otherwise>
             </c:choose>
-            <li><a href="/store">Glasses</a></li>
+            <li><a href="/store">Store</a></li>
             <c:choose>
                 <c:when test="${not empty sessionScope.user}">
                     <a href="/logout" class="button special">Logout</a>

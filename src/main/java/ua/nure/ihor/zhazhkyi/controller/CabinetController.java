@@ -2,8 +2,8 @@ package ua.nure.ihor.zhazhkyi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -18,12 +18,12 @@ public class CabinetController {
     @Autowired
     private StorageService storageService;
 
-    @GetMapping("/cabinet")
+    @RequestMapping(value = "/cabinet", method = RequestMethod.GET)
     public String cabinetGet() {
         return WebConstants.CABINET_PATH;
     }
 
-    @PostMapping("/uploadPhoto")
+    @RequestMapping(value = "/uploadPhoto", method = RequestMethod.POST)
     public @ResponseBody
     String uploadImage(@RequestParam("name") String name,
                        @RequestParam("file") MultipartFile file) {

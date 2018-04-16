@@ -6,4 +6,6 @@ public class WebConstants {
     public static final String CABINET_PATH = "cabinet";
     public static final String REGISTRATION_PATH = "registration";
     public static final String STORE_PATH = "store";
+    public static final String PROFILE_PATH = "profile";
+
 }
