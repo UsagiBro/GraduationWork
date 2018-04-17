@@ -9,7 +9,7 @@
                     <li><a href="/profile">Profile</a></li>
                 </c:when>
             </c:choose>
-            <li><a href="/store">Store</a></li>
+            <li><a href="/store">Glasses</a></li>
             <c:choose>
                 <c:when test="${not empty sessionScope.user}">
                     <a href="/logout" class="button special">Logout</a>
