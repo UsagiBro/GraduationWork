@@ -1,4 +1,4 @@
-package ua.nure.ihor.zhazhkyi.dto;
+package ua.nure.ihor.zhazhkyi.dto.user;
 
 public class UserDto {
 

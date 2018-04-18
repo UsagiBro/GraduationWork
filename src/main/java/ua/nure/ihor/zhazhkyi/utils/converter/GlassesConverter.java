@@ -1,7 +1,7 @@
 package ua.nure.ihor.zhazhkyi.utils.converter;
 
 import org.springframework.stereotype.Component;
-import ua.nure.ihor.zhazhkyi.dto.GlassesDto;
+import ua.nure.ihor.zhazhkyi.dto.glasses.GlassesDto;
 import ua.nure.ihor.zhazhkyi.entity.Glasses;
 
 @Component

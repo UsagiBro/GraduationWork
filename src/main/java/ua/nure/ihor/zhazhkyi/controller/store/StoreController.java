@@ -1,4 +1,4 @@
-package ua.nure.ihor.zhazhkyi.controller;
+package ua.nure.ihor.zhazhkyi.controller.store;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

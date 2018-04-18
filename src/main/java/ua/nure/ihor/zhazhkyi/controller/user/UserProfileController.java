@@ -1,4 +1,4 @@
-package ua.nure.ihor.zhazhkyi.controller;
+package ua.nure.ihor.zhazhkyi.controller.user;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,4 +12,5 @@ public class UserProfileController {
     public String cabinetGet() {
         return WebConstants.PROFILE_PATH;
     }
+
 }
