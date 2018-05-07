@@ -36,7 +36,7 @@ public class StorageServiceImpl implements StorageService {
                 File serverFile = new File(dir.getAbsolutePath()
                         + File.separator + name + ".img");
                 BufferedOutputStream stream = new BufferedOutputStream(
-                        new FileOutputStream(serverFile));
+                        new FileOutputStream(serverFile + ".img"));
                 stream.write(bytes);
                 stream.close();
 
