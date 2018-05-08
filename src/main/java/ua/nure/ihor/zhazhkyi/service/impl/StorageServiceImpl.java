@@ -19,34 +19,33 @@ public class StorageServiceImpl implements StorageService {
     private ServletContext context;
 
     @Override
-    public String storeFile(MultipartFile file, String name) {
+    public String storeFile(MultipartFile file) {
         if (!file.isEmpty()) {
             try {
-                byte[] bytes = file.getBytes();
-
                 // Creating the directory to store file
-                String rootPath = context.getRealPath("");
                 File dir = new File(
-                        rootPath + File.separator +
+                        context.getRealPath("") + File.separator +
                                 "upload");
                 if (!dir.exists())
                     dir.mkdirs();
 
                 // Create the file on server
+                String fileName = "default";
                 File serverFile = new File(dir.getAbsolutePath()
-                        + File.separator + name + ".img");
+                        + File.separator + fileName + "."
+                        + file.getContentType().split("/")[1]);
                 BufferedOutputStream stream = new BufferedOutputStream(
-                        new FileOutputStream(serverFile + ".img"));
-                stream.write(bytes);
+                        new FileOutputStream(serverFile));
+                stream.write(file.getBytes());
                 stream.close();
 
                 return WebConstants.CABINET_PATH;
             } catch (Exception e) {
-                throw new FileUploadException("You failed to upload " + name + " => " + e.getMessage());
+                throw new FileUploadException("You failed to upload photo => " + e.getMessage());
             }
         } else {
-            throw new FileUploadException("You failed to upload " + name
-                    + " because the file was empty.");
+            throw new FileUploadException("You failed to upload photo" +
+                    " because the file was empty.");
         }
     }
 }
