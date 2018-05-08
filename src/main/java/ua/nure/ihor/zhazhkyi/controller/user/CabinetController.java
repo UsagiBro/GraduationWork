@@ -24,8 +24,8 @@ public class CabinetController {
     }
 
     @RequestMapping(value = "/uploadPhoto", method = RequestMethod.POST)
-    public @ResponseBody
-    String uploadImage(@RequestParam("file") MultipartFile file) {
-        return storageService.storeFile(file);
+    public String uploadImage(@RequestParam("file") MultipartFile file) {
+        storageService.storeFile(file);
+        return WebConstants.CABINET_PATH;
     }
 }

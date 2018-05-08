@@ -19,7 +19,7 @@ public class StorageServiceImpl implements StorageService {
     private ServletContext context;
 
     @Override
-    public String storeFile(MultipartFile file) {
+    public void storeFile(MultipartFile file) {
         if (!file.isEmpty()) {
             try {
                 // Creating the directory to store file
@@ -38,8 +38,6 @@ public class StorageServiceImpl implements StorageService {
                         new FileOutputStream(serverFile));
                 stream.write(file.getBytes());
                 stream.close();
-
-                return WebConstants.CABINET_PATH;
             } catch (Exception e) {
                 throw new FileUploadException("You failed to upload photo => " + e.getMessage());
             }
