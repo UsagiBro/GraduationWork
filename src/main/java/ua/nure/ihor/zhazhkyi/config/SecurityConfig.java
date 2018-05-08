@@ -7,15 +7,13 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 
-@EnableWebSecurity
+//@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/**").permitAll();
         http.sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED);
+                .sessionCreationPolicy(SessionCreationPolicy.ALWAYS);
     }
 
     @Autowired
