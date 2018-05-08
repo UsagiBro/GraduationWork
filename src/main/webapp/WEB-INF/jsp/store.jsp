@@ -8,7 +8,7 @@
         <aside class="sm-side">
             <div class="user-head">
                 <c:if test="${not empty sessionScope.user}">
-                    <h3>Hello, ${sessionScope.user.name} ${sessionScope.user.surname}</h3>
+                    <h3>Hello, ${sessionScope.user.firstName} ${sessionScope.user.lastName}</h3>
                 </c:if>
                 <c:if test="${empty sessionScope.user}">
                     <h3>GO AND REGISTER!</h3>
