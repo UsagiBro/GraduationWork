@@ -226,7 +226,6 @@ a {
 }
 
 a:hover {
-  color: #0056b3;
   text-decoration: underline;
 }
 
@@ -8372,3 +8371,10 @@ a.text-dark:focus, a.text-dark:hover {
   visibility: hidden !important;
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+header h1 a:hover {
+  color: #cdced0;
+  display: inline-block;
+  text-decoration: none;
+
+}

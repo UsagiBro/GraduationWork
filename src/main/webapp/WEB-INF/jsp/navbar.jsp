@@ -1,10 +1,17 @@
 <!-- Header -->
 <header id="header">
-    <h1><a href="/cabinet">Web-Glasses</a></h1>
+    <c:choose>
+        <c:when test="${not empty sessionScope.user}">
+            <h1><a href="/cabinet">Web-Glasses</a></h1>
+        </c:when>
+        <c:otherwise>
+            <h1><a href="/authorization">Web-Glasses</a></h1>
+        </c:otherwise>
+    </c:choose>
     <nav id="nav">
         <ul>
             <c:choose>
-                <c:when test="${empty sessionScope.user}">
+                <c:when test="${not empty sessionScope.user}">
                     <li><a href="/cabinet">Cabinet</a></li>
                     <li><a href="/profile">Profile</a></li>
                 </c:when>

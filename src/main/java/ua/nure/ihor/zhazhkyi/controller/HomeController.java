@@ -50,6 +50,12 @@ public class HomeController {
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String registrationPost(UserDto userDto) {
         userService.registerUser(userDto);
-        return WebConstants.CABINET_PATH;
+        return WebConstants.AUTHORIZATION_PATH;
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout(HttpSession session) {
+        session.setAttribute("user", null);
+        return WebConstants.AUTHORIZATION_PATH;
     }
 }

@@ -1,4 +1,4 @@
-package ua.nure.ihor.zhazhkyi.controller.user;
+package ua.nure.ihor.zhazhkyi.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;

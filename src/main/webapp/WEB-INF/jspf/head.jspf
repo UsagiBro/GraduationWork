@@ -3,10 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <title>Registration</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <link href="assets/bootstrap/bootstrap.css" rel="stylesheet">
-        <script src="assets/js/jqueryValidation.js"></script>
         <link rel="stylesheet" href="assets/css/custom-style.css"/>
         <link rel="stylesheet" href="assets/css/style.css"/>
+        <link rel="stylesheet" href="assets/css/gallery.css"/>
         <script src='https://www.google.com/recaptcha/api.js'></script>
+        <script rel="script" src='assets/js/gallery-filter.js'></script>
     </head>
 </head>
