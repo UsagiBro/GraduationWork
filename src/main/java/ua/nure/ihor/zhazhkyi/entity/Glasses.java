@@ -24,8 +24,8 @@ public class Glasses {
     @Column(name = "price", nullable = false)
     private int price;
 
-    @Column(name = "material")
-    private String material;
+    @Column(name = "color")
+    private String color;
 
     public String getName() {
         return name;
@@ -51,12 +51,12 @@ public class Glasses {
         this.price = price;
     }
 
-    public String getMaterial() {
-        return material;
+    public String getColor() {
+        return color;
     }
 
-    public void setMaterial(String material) {
-        this.material = material;
+    public void setColor(String color) {
+        this.color = color;
     }
 
     @Override
@@ -72,11 +72,11 @@ public class Glasses {
                 price == glasses.price &&
                 Objects.equals(name, glasses.name) &&
                 Objects.equals(type, glasses.type) &&
-                Objects.equals(material, glasses.material);
+                Objects.equals(color, glasses.color);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, type, price, material);
+        return Objects.hash(id, name, type, price, color);
     }
 }

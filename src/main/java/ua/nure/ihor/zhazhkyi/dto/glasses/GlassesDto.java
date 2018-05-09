@@ -10,16 +10,16 @@ public class GlassesDto {
 
     private int price;
 
-    private String material;
+    private String color;
 
     public GlassesDto() {
     }
 
-    public GlassesDto(String name, String type, int price, String material) {
+    public GlassesDto(String name, String type, int price, String color) {
         this.name = name;
         this.type = type;
         this.price = price;
-        this.material = material;
+        this.color = color;
     }
 
     public String getName() {
@@ -46,12 +46,12 @@ public class GlassesDto {
         this.price = price;
     }
 
-    public String getMaterial() {
-        return material;
+    public String getColor() {
+        return color;
     }
 
-    public void setMaterial(String material) {
-        this.material = material;
+    public void setColor(String color) {
+        this.color = color;
     }
 
     @Override
@@ -66,11 +66,11 @@ public class GlassesDto {
         return price == that.price &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(type, that.type) &&
-                Objects.equals(material, that.material);
+                Objects.equals(color, that.color);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, type, price, material);
+        return Objects.hash(name, type, price, color);
     }
 }

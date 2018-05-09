@@ -25,8 +25,8 @@ public class GlassesValidator extends Validator<GlassesDto> {
         if (!matchesPattern(glassesDto.getType(), REGEX_FOR_STRING_FIELD)) {
             throw new UserValidationException(String.format(TYPE_VALIDATION_ERROR_MESSAGE, glassesDto.getType()));
         }
-        if (!matchesPattern(glassesDto.getMaterial(), REGEX_FOR_STRING_FIELD)) {
-            throw new UserValidationException(String.format(MATERIAL_VALIDATION_ERROR_MESSAGE, glassesDto.getMaterial()));
+        if (!matchesPattern(glassesDto.getColor(), REGEX_FOR_STRING_FIELD)) {
+            throw new UserValidationException(String.format(MATERIAL_VALIDATION_ERROR_MESSAGE, glassesDto.getColor()));
         }
         if (!matchesPattern(String.valueOf(glassesDto.getPrice()), REGEX_FOR_PRICE)) {
             throw new UserValidationException(String.format(PRICE_VALIDATION_ERROR_MESSAGE, glassesDto.getPrice()));

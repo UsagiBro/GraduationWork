@@ -11,6 +11,7 @@ import ua.nure.ihor.zhazhkyi.dto.user.UserDto;
 import ua.nure.ihor.zhazhkyi.entity.User;
 import ua.nure.ihor.zhazhkyi.service.UserService;
 
+import javax.servlet.http.HttpSession;
 import java.util.Objects;
 
 
@@ -32,9 +33,10 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/authorization", method = RequestMethod.POST)
-    public String authorizeUser(@RequestParam String email, @RequestParam String password) {
+    public String authorizeUser(@RequestParam String email, @RequestParam String password, HttpSession session) {
         User receivedUser = userService.getUserByEmailAndPassword(email, password);
         if (Objects.nonNull(receivedUser)) {
+            session.setAttribute("user", receivedUser);
             return WebConstants.CABINET_PATH;
         }
         return WebConstants.AUTHORIZATION_PATH;
