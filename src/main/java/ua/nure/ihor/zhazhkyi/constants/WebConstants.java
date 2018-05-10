@@ -8,4 +8,5 @@ public class WebConstants {
     public static final String STORE_PATH = "store";
     public static final String PROFILE_PATH = "profile";
 
+    public static final String USER = "user";
 }

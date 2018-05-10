@@ -8,4 +8,6 @@ import ua.nure.ihor.zhazhkyi.entity.User;
 public interface UserRepository extends CrudRepository<User, Long> {
 
     User findOneByEmail(String email);
+
+    String findPhotoById(Long id);
 }

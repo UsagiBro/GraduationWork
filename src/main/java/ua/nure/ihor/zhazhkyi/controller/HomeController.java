@@ -21,6 +21,9 @@ public class HomeController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private HttpSession session;
+
     @RequestMapping("/")
     public String index() {
         return WebConstants.AUTHORIZATION_PATH;
@@ -32,7 +35,7 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/authorization", method = RequestMethod.POST)
-    public String authorizeUser(@RequestParam String email, @RequestParam String password, HttpSession session) {
+    public String authorizeUser(@RequestParam String email, @RequestParam String password) {
         User receivedUser = userService.getUserByEmailAndPassword(email, password);
         if (Objects.nonNull(receivedUser)) {
             session.setAttribute("user", receivedUser);
@@ -53,7 +56,7 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
-    public String logout(HttpSession session) {
+    public String logout() {
         session.invalidate();
         return "redirect:" + WebConstants.AUTHORIZATION_PATH;
     }

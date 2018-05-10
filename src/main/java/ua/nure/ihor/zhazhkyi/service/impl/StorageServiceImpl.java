@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ua.nure.ihor.zhazhkyi.constants.WebConstants;
+import ua.nure.ihor.zhazhkyi.entity.User;
 import ua.nure.ihor.zhazhkyi.exception.file.FileUploadException;
+import ua.nure.ihor.zhazhkyi.persistence.UserRepository;
 import ua.nure.ihor.zhazhkyi.service.StorageService;
 
 import javax.servlet.ServletContext;
@@ -17,6 +19,9 @@ public class StorageServiceImpl implements StorageService {
 
     @Autowired
     private ServletContext context;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public void storeFile(MultipartFile file) {
@@ -45,5 +50,10 @@ public class StorageServiceImpl implements StorageService {
             throw new FileUploadException("You failed to upload photo" +
                     " because the file was empty.");
         }
+    }
+
+    @Override
+    public String getUserPhoto(User user) {
+        return userRepository.findPhotoById(user.getId());
     }
 }
