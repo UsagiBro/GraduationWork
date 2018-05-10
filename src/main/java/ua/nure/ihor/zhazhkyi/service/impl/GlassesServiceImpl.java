@@ -9,7 +9,6 @@ import ua.nure.ihor.zhazhkyi.exception.ServiceException;
 import ua.nure.ihor.zhazhkyi.persistence.GlassesRepository;
 import ua.nure.ihor.zhazhkyi.service.GlassesService;
 
-import java.awt.print.Pageable;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,7 +21,7 @@ public class GlassesServiceImpl implements GlassesService {
     @Override
     public List<Glasses> getGlasses() {
         PageRequest pageRequest = new PageRequest(0, 6);
-        Page<Glasses> receivedGlasses = Optional.ofNullable(glassesRepository.findAllGlasses((Pageable) pageRequest)).
+        Page<Glasses> receivedGlasses = Optional.ofNullable(glassesRepository.findAll(pageRequest)).
                 filter(gotCards -> gotCards.getTotalElements() > 0).orElseThrow(() ->
                 new ServiceException("Not found any glasses!"));
         return receivedGlasses.getContent();
