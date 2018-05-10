@@ -4,8 +4,6 @@
 <body>
 <%@include file="/WEB-INF/jsp/navbar.jsp" %>
 <div class="container col-md-4">
-    <c:choose>
-        <c:when test="${empty sessionScope.user}">
             <form action="authorization" method="post">
                 <h3 class="validation-above">
                     <strong>${sessionScope.wrong_authorization}</strong>
@@ -31,22 +29,5 @@
                     </div>
                 </div>
             </form>
-        </c:when>
-        <c:otherwise>
-            <form action="cabinet">
-                <div class="row login_box">
-                    <div class="col-md-12 col-xs-12" align="center">
-                        <h1>Hi ${sessionScope.user.getName()}</h1>
-                        <h1>${sessionScope.user.getEmail()}</h1>
-                    </div>
-                    <div class="col-md-12 col-xs-12 login_control">
-                        <div align="center">
-                            <button class="btn btn-orange">Go to cabinet</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </c:otherwise>
-    </c:choose>
 </div>
 </body>

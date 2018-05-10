@@ -8372,6 +8372,10 @@ a.text-dark:focus, a.text-dark:hover {
 }
 /*# sourceMappingURL=bootstrap.css.map */
 
+header h1 a {
+  color: #ffffff;
+}
+
 header h1 a:hover {
   color: #cdced0;
   display: inline-block;

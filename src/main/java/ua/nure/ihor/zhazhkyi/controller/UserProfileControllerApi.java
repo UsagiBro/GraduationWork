@@ -15,7 +15,7 @@ import ua.nure.ihor.zhazhkyi.dto.user.UserResponseDto;
 
 import java.util.List;
 
-public interface IUserProfileController {
+public interface UserProfileControllerApi {
 
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
     UserDto getUser(@PathVariable("id") Long userId);

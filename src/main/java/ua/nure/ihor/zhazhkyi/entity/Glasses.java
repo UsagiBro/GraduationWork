@@ -27,6 +27,9 @@ public class Glasses {
     @Column(name = "color")
     private String color;
 
+    @Column(name = "path")
+    private String path;
+
     public String getName() {
         return name;
     }
@@ -57,6 +60,14 @@ public class Glasses {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
     @Override

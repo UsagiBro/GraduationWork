@@ -9,6 +9,6 @@
         <link rel="stylesheet" href="assets/css/style.css"/>
         <link rel="stylesheet" href="assets/css/gallery.css"/>
         <script src='https://www.google.com/recaptcha/api.js'></script>
-        <script rel="script" src='assets/js/gallery-filter.js'></script>
+        <script rel="script" src='assets/bootstrap/bootstrap.js'></script>
     </head>
 </head>
