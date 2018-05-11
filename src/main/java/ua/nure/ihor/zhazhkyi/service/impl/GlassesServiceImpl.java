@@ -26,4 +26,9 @@ public class GlassesServiceImpl implements GlassesService {
                 new ServiceException("Not found any glasses!"));
         return receivedGlasses.getContent();
     }
+
+    @Override
+    public Glasses getGlassesByName(String name) {
+        return glassesRepository.findOneByName(name);
+    }
 }

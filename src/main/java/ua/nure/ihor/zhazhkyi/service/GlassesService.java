@@ -7,4 +7,6 @@ import java.util.List;
 public interface GlassesService {
 
     List<Glasses> getGlasses();
+
+    Glasses getGlassesByName(String itemId);
 }

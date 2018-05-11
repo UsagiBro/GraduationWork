@@ -7,4 +7,5 @@ import ua.nure.ihor.zhazhkyi.entity.Glasses;
 @Repository
 public interface GlassesRepository extends PagingAndSortingRepository<Glasses, Long> {
 
+    Glasses findOneByName(String name);
 }

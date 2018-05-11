@@ -2,6 +2,8 @@ package ua.nure.ihor.zhazhkyi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,12 +31,12 @@ public class HomeController {
         return WebConstants.AUTHORIZATION_PATH;
     }
 
-    @RequestMapping(value = "/authorization", method = RequestMethod.GET)
+    @GetMapping(value = "/authorization")
     public String getAuthorization() {
         return WebConstants.AUTHORIZATION_PATH;
     }
 
-    @RequestMapping(value = "/authorization", method = RequestMethod.POST)
+    @PostMapping(value = "/authorization")
     public String authorizeUser(@RequestParam String email, @RequestParam String password) {
         User receivedUser = userService.getUserByEmailAndPassword(email, password);
         if (Objects.nonNull(receivedUser)) {
@@ -44,18 +46,18 @@ public class HomeController {
         return WebConstants.AUTHORIZATION_PATH;
     }
 
-    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+    @GetMapping(value = "/registration")
     public String registrationGet() {
         return WebConstants.REGISTRATION_PATH;
     }
 
-    @RequestMapping(value = "/registration", method = RequestMethod.POST)
+    @PostMapping(value = "/registration")
     public String registrationPost(UserDto userDto) {
         userService.registerUser(userDto);
         return "redirect:" + WebConstants.AUTHORIZATION_PATH;
     }
 
-    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    @GetMapping(value = "/logout")
     public String logout() {
         session.invalidate();
         return "redirect:" + WebConstants.AUTHORIZATION_PATH;
