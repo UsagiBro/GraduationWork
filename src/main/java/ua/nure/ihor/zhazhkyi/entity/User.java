@@ -1,7 +1,5 @@
 package ua.nure.ihor.zhazhkyi.entity;
 
-import org.springframework.context.annotation.Scope;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,9 +25,6 @@ public class User implements Serializable {
 
     @Column(nullable = false, unique = true)
     private String email;
-
-    @Column(nullable = false)
-    private String photo;
 
     public Long getId() {
         return id;
@@ -69,14 +64,6 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
     }
 
     @Override

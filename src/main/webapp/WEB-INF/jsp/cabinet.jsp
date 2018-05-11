@@ -16,7 +16,6 @@
       <!-- Portfolio Item Row -->
       <div class="row">
         <div class="col-md-7">
-<!--          <img class="img-fluid" src="assets/images/${sessionScope.user.photo}" alt="">-->
           <img class="img-fluid" src="/loadPhoto" alt="">
         </div>
         <div class="col-md-5">
