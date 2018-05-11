@@ -1173,3 +1173,16 @@
 			width: 4em;
 			cursor: pointer;
 		}
+
+.form-inline .row.upload-btn {
+    max-width: 500;
+    margin: 1rem;
+}
+
+.file-input-btn {
+    width: 100%;
+}
+
+.form-inline{
+    flex-flow: nowrap;
+}

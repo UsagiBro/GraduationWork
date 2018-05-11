@@ -44,8 +44,8 @@
           <div class="row">
                 <c:forEach items="${sessionScope.glassesList}" var="glasses">
                     <div class="col-lg-4 col-md-6 mb-4">
-                      <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="${glasses.path}" alt=""></a>
+                      <div class="card">
+                        <a href="#"><img class="card-img-top" src="assets/images/glasses/${glasses.path}" alt=""></a>
                         <div class="card-body">
                           <h4 class="card-title">
                             <a href="#">${glasses.name}</a>

@@ -59,6 +59,7 @@ public class UserServiceImpl implements UserService {
             throw new UserAlreadyExistsException("User with such email already exists");
         }
         User user = userConverter.userDtoToUser(userDto);
+//        user.setPhoto("default-avatar.png");
         userRepository.save(user);
     }
 

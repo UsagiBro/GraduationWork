@@ -1,4 +1,4 @@
-package ua.nure.ihor.zhazhkyi.exception.file;
+package ua.nure.ihor.zhazhkyi.exception;
 
 import ua.nure.ihor.zhazhkyi.exception.ServiceException;
 

@@ -15,17 +15,16 @@
 
       <!-- Portfolio Item Row -->
       <div class="row">
-        <div class="col-md-8">
-          <img class="img-fluid" src="assets/images/cat_surprise_look.jpg" alt="">
+        <div class="col-md-7">
+<!--          <img class="img-fluid" src="assets/images/${sessionScope.user.photo}" alt="">-->
+          <img class="img-fluid" src="/loadPhoto" alt="">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-5">
           <h3 class="my-3">Project Description</h3>
           <form method="POST" action="/uploadPhoto" enctype="multipart/form-data">
             <div class="form-inline">
-                <span class="btn btn-success fileinput-button">
-                    <input type="file" name="file" multiple>
-                </span>
-                <input class="row" type="submit" value="Upload">
+                    <input class="file-input-btn" type="file" name="file" multiple>
+                <input class="row upload-btn" type="submit" value="Upload">
             </div>
           </form>
           <h3 class="my-3">Project Details</h3>

@@ -10,7 +10,6 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Scope("session")
 public class User implements Serializable {
 
     @Id
