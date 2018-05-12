@@ -48,7 +48,7 @@
                         <a href="#"><img class="card-img-top" src="assets/images/glasses/${glasses.path}" alt=""></a>
                         <div class="card-body">
                           <h4 class="card-title">
-                            <a href="/item/${glasses.name}">${glasses.name}</a>
+                            <a href="/item/${glasses.id}/">${glasses.name}</a>
                           </h4>
                           <h5>${glasses.price}$</h5>
                           <p class="card-text">${glasses.type}

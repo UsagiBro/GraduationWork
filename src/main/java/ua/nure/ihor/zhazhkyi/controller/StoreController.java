@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import ua.nure.ihor.zhazhkyi.constants.WebConstants;
 import ua.nure.ihor.zhazhkyi.entity.Glasses;
@@ -28,10 +26,10 @@ public class StoreController {
     }
 
 
-    @GetMapping(value = "/item/{name}")
-    public ModelAndView itemGet(@PathVariable("name") String name) {
+    @GetMapping(value = "/item/{id}")
+    public ModelAndView itemGet(@PathVariable("id") Long id) {
         ModelAndView itemMav = new ModelAndView(WebConstants.ITEM_PATH);
-        Glasses glasses = glassesService.getGlassesByName(name);
+        Glasses glasses = glassesService.getGlassesById(id);
         itemMav.addObject("glasses", glasses);
         return itemMav;
     }

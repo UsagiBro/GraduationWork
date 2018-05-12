@@ -8,5 +8,5 @@ public interface GlassesService {
 
     List<Glasses> getGlasses();
 
-    Glasses getGlassesByName(String itemId);
+    Glasses getGlassesById(Long itemId);
 }

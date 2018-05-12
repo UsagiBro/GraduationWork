@@ -28,7 +28,7 @@ public class GlassesServiceImpl implements GlassesService {
     }
 
     @Override
-    public Glasses getGlassesByName(String name) {
-        return glassesRepository.findOneByName(name);
+    public Glasses getGlassesById(Long id) {
+        return glassesRepository.findOne(id);
     }
 }
