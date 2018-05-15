@@ -19,10 +19,11 @@ public class StoreController {
     private GlassesService glassesService;
 
     @GetMapping(value = "/store")
-    public String storeGet(HttpSession session) {
+    public ModelAndView storeGet() {
+        ModelAndView storeMav = new ModelAndView(WebConstants.STORE_PATH);
         List<Glasses> glassesList = glassesService.getGlasses();
-        session.setAttribute("glassesList", glassesList);
-        return WebConstants.STORE_PATH;
+        storeMav.addObject("glassesList", glassesList);
+        return storeMav;
     }
 
 

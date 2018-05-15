@@ -42,7 +42,7 @@
             </a>
           </div>
           <div class="row">
-                <c:forEach items="${sessionScope.glassesList}" var="glasses">
+                <c:forEach items="${requestScope.glassesList}" var="glasses">
                     <div class="col-lg-4 col-md-6 mb-4">
                       <div class="card">
                         <a href="#"><img class="card-img-top" src="assets/images/glasses/${glasses.path}" alt=""></a>
