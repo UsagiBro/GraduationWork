@@ -1,6 +1,7 @@
 package ua.nure.ihor.zhazhkyi.recogniser;
 
 import java.io.File;
+import java.util.List;
 
 import org.bytedeco.javacpp.opencv_core;
 import org.bytedeco.javacpp.opencv_core.MatVector;
@@ -19,12 +20,15 @@ public class FaceRecognizer {
 
     private ImageResolver imageResolver;
     private FacePointEstimator facePointEstimator;
+    private GlassesAdviser glassesAdviser;
 
     @Autowired
     public FaceRecognizer(ImageResolver imageResolver,
-                          FacePointEstimator  facePointEstimator) {
+                          FacePointEstimator  facePointEstimator,
+                          GlassesAdviser glassesAdviser) {
         this.imageResolver = imageResolver;
         this.facePointEstimator = facePointEstimator;
+        this.glassesAdviser = glassesAdviser;
     }
 
     public void recogniseByImages(IplImage image, File rootDirectory) {
@@ -42,36 +46,31 @@ public class FaceRecognizer {
 
         for (File testImage : pngImagesFromDirectory) {
             img = cvLoadImage(testImage.getAbsolutePath());
-
             label = Integer.parseInt(testImage.getName().split("\\-")[0]);
-
             grayImg = IplImage.create(img.width(), img.height(), IPL_DEPTH_8U, 1);
-
             cvCvtColor(img, grayImg, CV_BGR2GRAY);
-
 //            vectorOfImages.put(counter, grayImg);
-            
             labels[counter] = label;
 
             counter++;
         }
 
         IplImage greyTestImage = IplImage.create(image.width(), image.height(), IPL_DEPTH_8U, 1);
-
 //        FaceRecognizer faceRecognizer = createFisherFaceRecognizer();
-
 //        faceRecognizer.train(vectorOfImages, labels);
-
         cvCvtColor(image, greyTestImage, CV_BGR2GRAY);
-
 //        int predictedLabel = faceRecognizer.predict(greyTestImage);
 
-//        System.out.println("Predicted label: " + predictedLabel);
+//        setUpGlasses(retreiveFace(predictedLabel));
     }
 
-    public Glasses setUpGlasses(IplImage image) {
-        facePointEstimator.getPintsFromImage(image);
-        return facePointEstimator.selectGlassesToFace();
+    private Glasses setUpGlasses(IplImage image) {
+        List<Integer> facePoints = facePointEstimator.getPintsFromImage(image);
+        return glassesAdviser.adviceGlasses(facePoints);
+    }
+
+    private IplImage retreiveFace(int label) {
+        return IplImage.create(0, 0, 0, 1);
     }
 
 }

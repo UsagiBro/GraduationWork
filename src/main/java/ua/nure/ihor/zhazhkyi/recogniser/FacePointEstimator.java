@@ -5,22 +5,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ua.nure.ihor.zhazhkyi.entity.Glasses;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class FacePointEstimator {
 
     @Autowired
-    private GlassesAdvisor glassesAdvisor;
+    private GlassesAdviser glassesAdviser;
 
     private int interPupilaryDistance;
     private int browEarDistance;
     private int noseWidth;
     private int headDiameter;
 
-    public void getPintsFromImage(opencv_core.IplImage grayImg) {
-
+    public List<Integer> getPintsFromImage(opencv_core.IplImage grayImg) {
+        return new ArrayList<>();
     }
 
-    public Glasses selectGlassesToFace() {
-        return glassesAdvisor.adviceGlasses(interPupilaryDistance,  browEarDistance, noseWidth, headDiameter);
+    public void selectGlassesToFace() {
+//        return glassesAdviser.adviceGlasses(interPupilaryDistance,  browEarDistance, noseWidth, headDiameter);
     }
 }
