@@ -18,7 +18,7 @@ public class BusinessServiceExceptionHandler {
                 exceptionDescriber, exception.getMessage());
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("exception", response);
-        modelAndView.setViewName("error");
+        modelAndView.setViewName("errorPage");
         return modelAndView;
     }
 }

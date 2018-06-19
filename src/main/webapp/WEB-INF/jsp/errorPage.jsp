@@ -6,8 +6,9 @@
 <br>
 <br>
 <br>
-<div class="col-xs-10">
-    <div id="tb-testimonial" class="testimonial testimonial-danger">
+    <div class="container">
+    <div class="col-xs-10">
+        <div id="tb-testimonial" class="testimonial testimonial-danger">
         <div class="testimonial-section">
             ${exception.errorMsg}
         </div>
@@ -17,6 +18,8 @@
                 <div class="testimonial-writer-name">Invalid request</div>
             </div>
         </div>
+        </div>
+    </div>  
     </div>
-</div>
+
 </body>

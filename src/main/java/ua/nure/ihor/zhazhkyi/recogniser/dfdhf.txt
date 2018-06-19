@@ -1,0 +1,21 @@
+
+
+	@Component
+	public class FaceRecognizer {
+	
+	    public IplImage recogniseByImages(IplImage image) {
+	
+	        MatVector vectorOfImages = new opencv_core.MatVector(image);
+	        IplImage resultImage;
+	        resultImage = IplImage.create(image.width(), image.height(), IPL_DEPTH_8U, 1);
+	        vectorOfImages.put(resultImage);
+	
+	        IplImage greyTestImage = IplImage.create(image.width(), image.height(), IPL_DEPTH_8U, 1);
+	        cvCvtColor(image, greyTestImage, CV_BGR2GRAY);
+	
+	        GlassesFisherFaceRecogniser faceRecognizer = new GlassesFisherFaceRecogniser(resultImage);
+	        return faceRecognizer.retreiveFaceParameters();
+	    }	
+	}
+
+
