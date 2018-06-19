@@ -1186,3 +1186,16 @@
 .form-inline{
     flex-flow: nowrap;
 }
+
+.btn-success-input {
+      background-color: #28a745 !important;
+      border-color: #28a745 !important;
+}
+.btn-success-input:hover, .btn-success-input.hover {
+   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5) !important;
+}
+
+.btn-success.success-input, .btn-success-input:disabled {
+   background-color: #28a745 !important;
+   border-color: #28a745 !important;
+}

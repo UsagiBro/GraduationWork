@@ -21,8 +21,14 @@ public class Glasses {
     private String type;
 
 
-    @Column(name = "price", nullable = false)
-    private int price;
+    @Column(name="lens_height", nullable = false)
+    private int lensHeight;
+
+    @Column(name="lens_width", nullable = false)
+    private int lensWidth;
+
+    @Column(name="bridge_width", nullable = false)
+    private int bridgeWidth;
 
     @Column(name = "color")
     private String color;
@@ -54,20 +60,36 @@ public class Glasses {
         this.type = type;
     }
 
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
     public String getColor() {
         return color;
     }
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public int getLensHeight() {
+        return lensHeight;
+    }
+
+    public void setLensHeight(int lensHeight) {
+        this.lensHeight = lensHeight;
+    }
+
+    public int getLensWidth() {
+        return lensWidth;
+    }
+
+    public void setLensWidth(int lensWidth) {
+        this.lensWidth = lensWidth;
+    }
+
+    public int getBridgeWidth() {
+        return bridgeWidth;
+    }
+
+    public void setBridgeWidth(int bridgeWidth) {
+        this.bridgeWidth = bridgeWidth;
     }
 
     public String getPath() {
@@ -88,7 +110,6 @@ public class Glasses {
         }
         Glasses glasses = (Glasses) o;
         return id == glasses.id &&
-                price == glasses.price &&
                 Objects.equals(name, glasses.name) &&
                 Objects.equals(type, glasses.type) &&
                 Objects.equals(color, glasses.color);
@@ -96,6 +117,6 @@ public class Glasses {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, type, price, color);
+        return Objects.hash(id, name, type, color);
     }
 }

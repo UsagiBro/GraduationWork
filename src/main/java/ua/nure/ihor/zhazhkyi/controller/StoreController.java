@@ -34,4 +34,12 @@ public class StoreController {
         itemMav.addObject("glasses", glasses);
         return itemMav;
     }
+
+    @GetMapping(value = "/recognition")
+    public ModelAndView recognitionGet() {
+        ModelAndView itemMav = new ModelAndView(WebConstants.RECOGNITION_PATH);
+        Glasses glasses = glassesService.getGlassesById(1L);
+        itemMav.addObject("glasses", glasses);
+        return itemMav;
+    }
 }

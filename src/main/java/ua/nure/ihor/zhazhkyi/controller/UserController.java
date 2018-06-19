@@ -3,6 +3,8 @@ package ua.nure.ihor.zhazhkyi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,7 +29,7 @@ public class UserController {
     @Autowired
     private HttpSession session;
 
-    @RequestMapping(value = "/cabinet", method = RequestMethod.GET)
+    @GetMapping(value = "/cabinet")
     public ModelAndView cabinetGet() {
         ModelAndView cabinetMav = new ModelAndView(WebConstants.CABINET_PATH);
         Optional.ofNullable(session.getAttribute(WebConstants.USER))
@@ -35,22 +37,24 @@ public class UserController {
         return cabinetMav;
     }
 
-    @RequestMapping(value = "/uploadPhoto", method = RequestMethod.POST)
+    @PostMapping(value = "/uploadPhoto")
     public String uploadPhoto(@RequestParam("file") MultipartFile file) {
         User user = (User) session.getAttribute(WebConstants.USER);
         storageService.storePhoto(file, user.getEmail());
         return WebConstants.CABINET_PATH;
     }
 
-    @RequestMapping(value = "/loadPhoto", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
+    @GetMapping(value = "/loadPhoto", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody byte[] loadPhoto() {
         User user = (User) Optional.ofNullable(session.getAttribute(WebConstants.USER))
                 .orElseThrow(() -> new ServiceException("Please authorize first!"));
         return storageService.loadPhoto(user.getEmail());
     }
 
-    @RequestMapping(value = "/profile", method = RequestMethod.GET)
+    @GetMapping(value = "/profile")
     public String profileGet() {
         return WebConstants.PROFILE_PATH;
     }
+
+
 }

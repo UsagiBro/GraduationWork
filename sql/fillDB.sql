@@ -1,8 +1,8 @@
-insert into glasses(name, type, price, color, path) values ("Airdrop", "eyeglasses", 174, "black", "Airdrop.jpg");
-insert into glasses(name, type, price, color, path) values ("Persolo", "sunglasses", 260, "bronze", "Persolo.jpg");
-insert into glasses(name, type, price, color, path) values ("Regent", "eyeglasses", 190, "tortoise", "Regent.jpg");
-insert into glasses(name, type, price, color, path) values ("Eliot", "eyeglasses", 207, "black", "Eliot.jpg");
-insert into glasses(name, type, price, color, path) values ("Otto", "sunglasses", 221, "metal", "Otto.jpg");
-insert into glasses(name, type, price, color, path) values ("Muse", "sunglasses", 195, "grey", "Muse.jpg");
+insert into glasses(name, type, color, path, lens_height, lens_width, bridge_width) values ("Airdrop", "eyeglasses", "black", "Airdrop.jpg", 3, 2, 2);
+insert into glasses(name, type, color, path, lens_height, lens_width, bridge_width) values ("Persolo", "sunglasses", "bronze", "Persolo.jpg", 2, 1, 1);
+insert into glasses(name, type, color, path, lens_height, lens_width, bridge_width) values ("Regent", "eyeglasses", "tortoise", "Regent.jpg", 4, 3, 2);
+insert into glasses(name, type, color, path, lens_height, lens_width, bridge_width) values ("Eliot", "eyeglasses", "black", "Eliot.jpg", 3, 2, 1);
+insert into glasses(name, type, color, path, lens_height, lens_width, bridge_width) values ("Otto", "sunglasses", "metal", "Otto.jpg", 4, 3, 2);
+insert into glasses(name, type, color, path, lens_height, lens_width, bridge_width) values ("Muse", "sunglasses", "grey", "Muse.jpg", 3, 2, 1);
 
 

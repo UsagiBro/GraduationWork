@@ -1,6 +1,5 @@
 package ua.nure.ihor.zhazhkyi.recogniser;
 
-import org.bytedeco.javacpp.opencv_core;
 import org.springframework.stereotype.Component;
 
 import java.io.File;

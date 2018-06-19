@@ -45,7 +45,7 @@ public class FaceRecognizer {
 
             cvCvtColor(img, grayImg, CV_BGR2GRAY);
 
-            vectorOfImages.put(counter, grayImg);
+//            vectorOfImages.put(counter, grayImg);
 
             labels[counter] = label;
 
@@ -54,14 +54,14 @@ public class FaceRecognizer {
 
         IplImage greyTestImage = IplImage.create(image.width(), image.height(), IPL_DEPTH_8U, 1);
 
-        FaceRecognizer faceRecognizer = createFisherFaceRecognizer();
+//        FaceRecognizer faceRecognizer = createFisherFaceRecognizer();
 
-        faceRecognizer.train(vectorOfImages, labels);
+//        faceRecognizer.train(vectorOfImages, labels);
 
         cvCvtColor(image, greyTestImage, CV_BGR2GRAY);
 
-        int predictedLabel = faceRecognizer.predict(greyTestImage);
+//        int predictedLabel = faceRecognizer.predict(greyTestImage);
 
-        System.out.println("Predicted label: " + predictedLabel);
+//        System.out.println("Predicted label: " + predictedLabel);
     }
 }
