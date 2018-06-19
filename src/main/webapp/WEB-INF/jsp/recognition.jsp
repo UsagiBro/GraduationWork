@@ -9,7 +9,7 @@
       <!-- Heading Row -->
       <div class="row my-4">
         <div class="col-lg-8">
-          <img class="img-fluid rounded" src="" alt="">
+          <img class="img-fluid rounded" src="/loadRecognisedPhoto" alt="">
         </div>
         <!-- /.col-lg-8 -->
         <div class="col-lg-4">

@@ -1,7 +1,6 @@
 package ua.nure.ihor.zhazhkyi.recogniser;
 
 import org.bytedeco.javacpp.opencv_core.IplImage;
-import org.opencv.face.FisherFaceRecognizer;
 
 public class GlassesFisherFaceRecogniser
 //        extends FisherFaceRecognizer

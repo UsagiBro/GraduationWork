@@ -22,8 +22,9 @@ public class FaceRecognizer {
         IplImage greyTestImage = IplImage.create(image.width(), image.height(), IPL_DEPTH_8U, 1);
         cvCvtColor(image, greyTestImage, CV_BGR2GRAY);
 
-        GlassesFisherFaceRecogniser faceRecognizer = new GlassesFisherFaceRecogniser(resultImage);
-        return faceRecognizer.retreiveFaceParameters();
+//        GlassesFisherFaceRecogniser faceRecognizer = new GlassesFisherFaceRecogniser(resultImage);
+//        resultImage =  faceRecognizer.retreiveFaceParameters();
+        return resultImage;
     }
 
 }
